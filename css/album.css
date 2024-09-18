@@ -1,0 +1,17 @@
+body{
+    background-color: #212529;
+}
+
+.container{
+    border-radius: 20px;
+}
+
+.cover{
+    height: 600px;
+    width: 600px;
+    border-radius: 2%;
+}
+
+h1, h3, .tracks , p, hr {
+    color: white;
+}
