@@ -60,7 +60,7 @@ function displayAlbum(album){
                   </table>`;
     let response = `
             <div class="col-md-6  d-flex justify-content-center align-items-center">
-                <img src="${album.images[0].url}" class="cover" alt="...">
+                <!--<img src="${album.images[0].url}" class="cover" alt="...">-->
             </div>
             <div class="col-md-6">
                 <div id="title"><h1>${album.name}</h1></div>
