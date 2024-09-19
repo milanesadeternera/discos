@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", async ()=>{
 
     displayAlbum(albumJson);
     //review del usuario
-    displayUserReview(albumJson.id);
+    //displayUserReview(albumJson.id);
 
 });
 
