@@ -22,6 +22,10 @@ document.addEventListener("DOMContentLoaded", async ()=>{
     //review del usuario
     //displayUserReview(albumJson.id);
 
+    //Muestro contenido para review
+    //document.querySelector('input[name="reviewRadioOptions"]:checked').value
+    //displayUserReview();
+
 });
 
 
@@ -97,3 +101,16 @@ function displayUserReview(albumId){
     console.log("User review");
     console.log(albumReview);
 }
+
+document.getElementById('saveReview').addEventListener('click', function(){
+    //recupero calificacion
+    let calificacion = document.querySelector('input[name="reviewRadioOptions"]:checked').value
+    //recupero comentarios
+    let comentarios = document.getElementById("reviewTextarea").value;
+    //albumId - albumJson.id
+    let review = {"albumId": albumJson.id, "date": obtenerFechaFormateada(), "score":calificacion, "review":comentarios};
+    //guardo en localstorage
+    let userData = getUserData();
+    userData.history.push(review);
+    setUserData(userData);
+});

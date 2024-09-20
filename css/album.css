@@ -23,3 +23,31 @@ h1, h3, .tracks , p, hr {
 .btn-guardar{
     background-color: #029110;
 }
+
+input[type="radio"] {
+    display: none; /* Ocultamos el input estándar */
+}
+
+.star{
+    font-size: 30px;
+    cursor: pointer;
+}
+.rate {
+    display: inline-block;
+    height: 46px;
+    padding: 0 10px;
+    color: #ffc700;
+}
+
+/*Color al seleccionar*/
+.rate > input:checked ~ label {   
+   color: #ffc700;
+}
+/*Color del seleccionado*/
+.rate > input:checked + label {   
+    color: #ffc700;
+}
+/*Color de los posteriores*/
+.rate > input:checked + label ~ label {   
+color:#544500;
+}

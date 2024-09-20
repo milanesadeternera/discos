@@ -33,6 +33,10 @@ function getUserData(){
   let userData = JSON.parse(localStorage.getItem("discos"));
   return userData[0];
 }
+function setUserData(data){
+  localStorage.setItem("discos",JSON.stringify(data))
+  return true;
+}
 
 
 //Convierte la duracion de los temas en formato mm:ss
@@ -50,3 +54,13 @@ function getUserData(){
     
     return `${minutesStr}:${secondsStr}`;
   }
+
+  //Obtener fecha actual en formato dd/mm/yyyy
+  function obtenerFechaFormateada() {
+    const fecha = new Date();
+    const dia = String(fecha.getDate()).padStart(2, '0');
+    const mes = String(fecha.getMonth() + 1).padStart(2, '0');
+    const año = fecha.getFullYear();
+
+    return `${dia}/${mes}/${año}`; 
+}

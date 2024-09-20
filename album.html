@@ -25,14 +25,30 @@
         <div class="col-8">
         <!-- estrellas -->
         <div>
-          <p>tu calificación:</p>
+        <p class="fs-5 mb-0">tu calificación:</p>
+          
+          <div class="mb-2">
+          <div class="form-check form-check-inline rate mx-0 p-0">
+            <input class="form-check-input" type="radio" name="reviewRadioOptions" id="inlineRadio1" value="1">
+            <label class="star" for="inlineRadio1">★</label>
+            <input class="form-check-input" type="radio" name="reviewRadioOptions" id="inlineRadio2" value="2">
+            <label class="star" for="inlineRadio2">★</label>
+            <input class="form-check-input" type="radio" name="reviewRadioOptions" id="inlineRadio3" value="3">
+            <label class="star" for="inlineRadio3">★</label>
+            <input class="form-check-input" type="radio" name="reviewRadioOptions" id="inlineRadio4" value="4">
+            <label class="star" for="inlineRadio4">★</label>
+            <input class="form-check-input" type="radio" name="reviewRadioOptions" id="inlineRadio5" value="5">
+            <label class="star" for="inlineRadio5">★</label>
+          </div>
+          </div>
+
         </div>
         <!-- text review -->
         <div class="form-floating" data-bs-theme="dark">
-            <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea"></textarea>
-            <label for="floatingTextarea">comentarios</label>
+            <textarea class="form-control" placeholder="Leave a comment here" id="reviewTextarea"></textarea>
+            <label for="reviewTextarea">comentarios</label>
         </div>
-        <button type="button" class="btn btn-outline-success mt-2">Guardar</button> 
+        <button type="button" id="saveReview" class="btn btn-outline-success mt-2">Guardar</button> 
       </div>
       </div>
     <hr>
