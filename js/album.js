@@ -19,7 +19,18 @@ document.addEventListener("DOMContentLoaded", async ()=>{
     });
 
     displayAlbum(albumJson);
+
     //review del usuario
+    userData = getUserData();
+    console.log(userData);
+
+    if(userData.history.some(element => element.albumId === albumJson.id)){
+        //hay review
+        console.log("Hay review");
+        displayUserReview(albumJson.id);
+    }
+    
+    
     //displayUserReview(albumJson.id);
 
     //Muestro contenido para review
@@ -64,7 +75,7 @@ function displayAlbum(album){
                   </table>`;
     let response = `
             <div class="col-md-6  d-flex justify-content-center align-items-center">
-                <!--<img src="${album.images[0].url}" class="cover" alt="...">-->
+                <img src="${album.images[0].url}" class="cover" alt="...">
             </div>
             <div class="col-md-6">
                 <div id="title"><h1>${album.name}</h1></div>
@@ -86,15 +97,21 @@ function displayUserReview(albumId){
 
     if(albumReview != "" ){
         content =`
-            <div><p>Tu calificacion: ${albumReview.score}/5</p></div>
+            <div>
+                <p class="fs-5 mb-0">Tu calificacion:</p>`
+
+        for(let i=1; i<=5 ; i++){
+            if(i<=albumReview.score){
+                content+=`<label class="star star-on">★</label>`
+            }else{
+                content+=`<label class="star star-off">★</label>`
+            }
+
+        }
+        content+=
+            `</div>
                 <div class="col fs-5 text-center fst-italic">
                 <p>“${albumReview.review}"</p>
-            </div>`
-    }else{
-        content =`
-            <div></div>
-                <div class="col fs-5 text-center fst-italic">
-                <p>Todavia no has calificado este album</p>
             </div>`
     }
     document.getElementById("userReview").innerHTML=content;
@@ -102,6 +119,7 @@ function displayUserReview(albumId){
     console.log(albumReview);
 }
 
+//Guarda la calificación del usuario
 document.getElementById('saveReview').addEventListener('click', function(){
     //recupero calificacion
     let calificacion = document.querySelector('input[name="reviewRadioOptions"]:checked').value
@@ -113,4 +131,7 @@ document.getElementById('saveReview').addEventListener('click', function(){
     let userData = getUserData();
     userData.history.push(review);
     setUserData(userData);
+
+    //Actualizo y muestro la informacion.
+    displayUserReview(albumJson.id);
 });

@@ -1,0 +1,17 @@
+body{
+    background-color: #212529;
+}
+
+h1, h3, .tracks , p, hr {
+    color: white;
+}
+
+.title{
+    font-size:96px;
+    font-weight: bold;
+
+}
+
+.card{
+    height: 100%;
+}

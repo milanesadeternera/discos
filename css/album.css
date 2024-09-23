@@ -32,6 +32,12 @@ input[type="radio"] {
     font-size: 30px;
     cursor: pointer;
 }
+.star-on{
+    color: #ffc700;
+}
+.star-off{
+    color:#544500;
+}
 .rate {
     display: inline-block;
     height: 46px;

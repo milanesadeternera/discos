@@ -31,7 +31,7 @@ async function readJSON(url) {
 //Recupero info de usuario
 function getUserData(){
   let userData = JSON.parse(localStorage.getItem("discos"));
-  return userData[0];
+  return userData;
 }
 function setUserData(data){
   localStorage.setItem("discos",JSON.stringify(data))
