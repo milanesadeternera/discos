@@ -2,7 +2,7 @@ body{
     background-color: #212529;
 }
 
-h1, h3, .tracks , p, hr {
+h1, h3, h4, label, .tracks , p, hr {
     color: white;
 }
 
