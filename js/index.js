@@ -4,21 +4,22 @@ document.addEventListener("DOMContentLoaded", () =>{
     //login
     document.getElementById("loginButton").addEventListener("click", login);
     //registro
-    document.getElementById("registerButton").addEventListener("click", register);
-    //Recupero lista de discos.
+    document.getElementById("registerButton").addEventListener("click", registerForm);
 })
 
 
-function register(){
-    console.log("entro a register");
+function registerForm(){
     let username = document.getElementById("registerUser");
     let email = document.getElementById("registerEmail");
     console.log("Usuario:"+username.value);
     console.log("Email:"+email.value);
-    if(username.value == '' ){
-        username.classList.add("is-invalid");
+    //valido informacion ingresada.
+    if(validForm(username, "username") && validForm(email, "email")){
+        if(register(username.value, email.value)){
+            console.log("info correcta");
+            window.location.href = "album.html";
+        }
     }
-
 }
 
 function login(){}

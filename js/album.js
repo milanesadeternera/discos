@@ -1,6 +1,6 @@
 let albumJson ="";
 
-
+/*
 document.addEventListener("DOMContentLoaded", async ()=>{
 
     albumJson = await readJSON('./data/albums.json')
@@ -21,9 +21,9 @@ document.addEventListener("DOMContentLoaded", async ()=>{
     displayAlbum(albumJson);
 
     //review del usuario
-    userData = getUserData();
-    console.log(userData);
-
+    //userData = getUserData();
+    //console.log(userData);
+    
     if(userData.history.some(element => element.albumId === albumJson.id)){
         //hay review
         console.log("Hay review");
@@ -135,3 +135,4 @@ document.getElementById('saveReview').addEventListener('click', function(){
     //Actualizo y muestro la informacion.
     displayUserReview(albumJson.id);
 });
+*/

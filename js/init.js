@@ -1,4 +1,7 @@
+const re =/^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
+
 //crea usuario ficticio
+/*
 async function crearUsuario(){
   localStorage.removeItem("discos");
   await fetch('./data/fakeUser.json')
@@ -8,7 +11,7 @@ async function crearUsuario(){
     );
 
 }
-
+*/
 async function readJSON(url) {
     try {
       const response = await fetch(url);
@@ -28,6 +31,7 @@ async function readJSON(url) {
     }
   }
 
+/*
 //Recupero info de usuario
 function getUserData(){
   let userData = JSON.parse(localStorage.getItem("discos"));
@@ -37,7 +41,7 @@ function setUserData(data){
   localStorage.setItem("discos",JSON.stringify(data))
   return true;
 }
-
+*/
 
 //Convierte la duracion de los temas en formato mm:ss
   function formatMilliseconds(ms) {
@@ -63,4 +67,35 @@ function setUserData(data){
     const año = fecha.getFullYear();
 
     return `${dia}/${mes}/${año}`; 
+}
+
+
+function validForm(element, type){
+
+  switch (type){
+    case "username":
+      if (element.value == ''){
+        element.classList.remove("is-valid");
+        element.classList.add("is-invalid");
+        return false;
+      }else{
+        element.classList.remove("is-invalid");
+        element.classList.add("is-valid");
+        return true;
+      }
+    break;
+    //email
+    case "email":
+      if(element.value.match(re)){
+        element.classList.remove("is-invalid");
+        element.classList.add("is-valid");
+        return true;
+      }else{
+        element.classList.remove("is-valid");
+        element.classList.add("is-invalid");
+        return false;
+      }
+    break;
+  }
+
 }
