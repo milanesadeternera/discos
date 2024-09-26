@@ -15,6 +15,8 @@ function register(username, email){
     userData.username=username;
     userData.email=email;
     localStorage.setItem(storageKey, JSON.stringify(userData));
+    //asigno un disco.
+    setDailyAlbum(username)
     return true;
 }
 
@@ -22,22 +24,22 @@ function register(username, email){
 async function setDailyAlbum(user){
     let userData = getUserData(user);
     let albumsId = await getAlbumsId();
-    console.log(albumsId);
 
     //lista de history album ids.
     let historyId = userData.history.map(review => review.albumId);
-    historyId = ['5QuLV3XtfsdR4ujUcg9xd5', '57DyIWEyjXm0hqeVX0dk36', '2eLIA8Rhn0XTpfJxnFzaa5', '1B9nXYbMosOfWLlSrE8Q3r', '34ywELgakejCKU2p37wJJ8', '1ZRH0AAHXlUFCw2e0Ch5b9', '6zMQ2vluMVTM250k3ztUT5', '0OehuG8E9aCUx9lJWfMiqI', '5LigBf2htSs8LEH14NyNlc', '3kBxndgqMkPpGNe7ShLONu', '2xCPpaygS77Kui44LYBwsl', '2oNkyLOrpSqk2EllB0kOdw', '5pTHKFpXgoOTcWa6Qar4NK']
+    //historyId = ['5QuLV3XtfsdR4ujUcg9xd5', '57DyIWEyjXm0hqeVX0dk36', '2eLIA8Rhn0XTpfJxnFzaa5', '1B9nXYbMosOfWLlSrE8Q3r', '34ywELgakejCKU2p37wJJ8', '1ZRH0AAHXlUFCw2e0Ch5b9', '6zMQ2vluMVTM250k3ztUT5', '0OehuG8E9aCUx9lJWfMiqI', '5LigBf2htSs8LEH14NyNlc', '3kBxndgqMkPpGNe7ShLONu', '2xCPpaygS77Kui44LYBwsl', '2oNkyLOrpSqk2EllB0kOdw', '5pTHKFpXgoOTcWa6Qar4NK']
     //Creo array sin album en historial
     let options = albumsId.filter(album => !historyId.includes(album));
+    console.log(options);
     if(options.length>=1){
-        let choice = options[Math.floor(Math.random() * (options.length + 1))];
-        console.log("Nuevo disco "+choice)
+        let asignedAlbum = options[Math.floor(Math.random() * (options.length))];
+        console.log("Nuevo disco "+asignedAlbum)
         //guardo data
-        userData.history.push({albumId:choice, date: getDate(), score: -1 , review: ""})
+        userData.history.push({albumId:asignedAlbum, date: getDate(), score: -1 , review: ""})
         setUserData(userData)
     }
 
-    return choice;
+    return true;
 }
 
 
