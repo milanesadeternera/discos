@@ -1,5 +1,10 @@
 let albumJson ="";
 
+document.addEventListener("DOMContentLoaded", ()=>{
+    let todayAlbum = getAlbum();
+    let comments = "";
+});
+
 /*
 document.addEventListener("DOMContentLoaded", async ()=>{
 

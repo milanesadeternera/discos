@@ -1,23 +1,21 @@
-const storageKey="LosDiscosCoco";
-let userData = {
-    "username":"",
-    "email":"",
-    "history": []
-  }
 
 
 
 //Registrar Usuario
 function register(username, email){
-    console.log("creousu")
-    console.log(username)
-    console.log(typeof(username))
+    console.log("Creo Usuario: "+username);
     userData.username=username;
     userData.email=email;
-    localStorage.setItem(storageKey, JSON.stringify(userData));
-    //asigno un disco.
-    setDailyAlbum(username)
-    return true;
+
+    let checkUser = getUserData(username);
+    if(checkUser === undefined){
+        //usuario no existe
+        createUser(username, email);
+        return true;
+    }else{
+        //usuario ya existe
+        return false;
+    }
 }
 
 //Asignar Album diario.
@@ -41,17 +39,7 @@ async function setDailyAlbum(user){
 
     return true;
 }
-
-
-//Recupero info de usuario
-function getUserData(){
-    let userData = JSON.parse(localStorage.getItem(storageKey));
-    return userData;
-}
-function setUserData(data){
-    localStorage.setItem(storageKey,JSON.stringify(data))
-    return true;
-}
+ 
 
 //Obtener fecha actual en formato dd/mm/yyyy
 function getDate() {

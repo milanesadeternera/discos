@@ -1,5 +1,11 @@
 const re =/^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
 
+/*Reviso que el localstorage esté iniciado con la informacion necesaria
+Para funcionar la página
+*/
+createDb();
+
+
 //crea usuario ficticio
 /*
 async function crearUsuario(){
