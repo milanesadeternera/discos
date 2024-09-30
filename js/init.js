@@ -1,6 +1,7 @@
 const re =/^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
 
-/*Reviso que el localstorage esté iniciado con la informacion necesaria
+/*
+Reviso que el localstorage esté iniciado con la informacion necesaria
 Para funcionar la página
 */
 createDb();

@@ -16,7 +16,6 @@ function registerForm(){
     //valido informacion ingresada.
     if(validForm(username, "username") && validForm(email, "email")){
         if(register(username.value, email.value)){
-            console.log("info correcta");
             window.location.href = "album.html";
         }
     }

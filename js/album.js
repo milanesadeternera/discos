@@ -1,8 +1,9 @@
 let albumJson ="";
 
-document.addEventListener("DOMContentLoaded", ()=>{
-    let todayAlbum = getAlbum();
-    let comments = "";
+document.addEventListener("DOMContentLoaded", async ()=>{
+    let album = await todayAlbum();
+    displayAlbum(album);
+    let comments = albumComments();
 });
 
 /*
@@ -43,7 +44,7 @@ document.addEventListener("DOMContentLoaded", async ()=>{
     //displayUserReview();
 
 });
-
+*/
 
 
 function displayAlbum(album){
@@ -89,7 +90,7 @@ function displayAlbum(album){
 
     document.getElementById("albumRow").innerHTML=response;
 }
-
+/*
 function displayUserReview(albumId){
     let userData = getUserData();
     let albumReview = "";

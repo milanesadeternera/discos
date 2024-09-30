@@ -1,0 +1,10 @@
+
+
+
+localstorage.
+"username" => Nombre,
+"email" => correo@correo.com,
+"history" => [
+            {albumId: "" , date: "" , score : "" , review :""}
+],
+

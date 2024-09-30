@@ -13,54 +13,53 @@ let userData = {
     "history": []
   }
 
-
-
-
-//Recupero info de usuario
-function getUserData(findUser){
-    let users = JSON.parse(localStorage.getItem(storageKey)).users;
-    if(findUser != ""){
-        let user = users.filter( user => user.username == findUser)[0];
-        return user;
-    }else{
-        return users;
+//Funcion que crear el localstorage.
+function createDb(){
+    if(localStorage.getItem(storageKey) == null){
+        console.log("creo DB")
+        localStorage.setItem(storageKey, JSON.stringify(userData));
     }
 }
+//Recupero info de usuario
+function getUserData(){
+    let userData = JSON.parse(localStorage.getItem(storageKey));
+    return userData;
+}
+//Guardo informacion del usuario
 function setUserData(data){
     localStorage.setItem(storageKey,JSON.stringify(data))
     return true;
 }
+
+//Creo usuario 
 function createUser(username, email){
-    console.log("usuarios:")
-    //nfo = await readJSON("./data/users.json");
-    info = JSON.parse(localStorage.getItem(storageKey));
-    users= info.users;
-    console.log(users);
-    let maxId = users.reduce((max, user) => (user.id > max ? user.id : max), 0);
-    users.push({id : maxId+1, username : username , email : email})
-    
-    info.users = users;
-    console.log(info);
-    localStorage.setItem(storageKey, JSON.stringify(info));
+    console.log("DB Creo Usuario:");
+    data = JSON.parse(localStorage.getItem(storageKey));
+    data.username = username;
+    data.email = email;
+
+    localStorage.setItem(storageKey, JSON.stringify(data));
     return true;
 }
 
+//Obtener informacion de Album.
+async function getAlbum(albumId){
+    let data = await readJSON('./data/albums.json');
+    let album = data.find(album => album.id === albumId);
+    console.log("getAlbum: "+album.id);
+    return album;
+}
 
-//Funcion que crea el localstorage.
-async function createDb(){
-    if(localStorage.getItem(storageKey) == null){
-        console.log("creo DB")
-        users = await readJSON("./data/users.json");
-        activity = await readJSON("./data/activity.json");
-        let info = {"users": users , "activiy": activity};
-        localStorage.setItem(storageKey, JSON.stringify(info));
-    }/*else{
-        //cargo info en variable global.
-        console.log("cargo DB");
-        users = JSON.parse(localStorage.getItem(storageKey)).users;
-        activity = JSON.parse(localStorage.getItem(storageKey)).activity;
-    }*/
-
+//cargar array con albumsId
+async function getAlbumsId(){
+    return readJSON('./data/albums.json')
+    .then(data => {
+        let albumsId = data.map( album => album.id);
+        return albumsId;
+    })
+    .catch(error => {
+        console.error('Error al cargar JSON:', error);
+    });
 }
 
 async function readJSON(url) {
