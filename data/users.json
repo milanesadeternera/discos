@@ -1,6 +1,12 @@
 [
-    {"id": 1 , "username":"RhythmRebel22", "email":"rhythmrebel22@musicmail.com"},
-    {"id": 2 , "username":"MelodyMaven99", "email":"melodymaven99@tunebox.com"},
-    {"id": 3 , "username":"BasslineBliss77", "email":"basslinebliss77@notemail.com"},
-    {"id": 4 , "username":"HarmonyHunter51", "email":"harmonyhunter51@soundmail.com"}
+    {"id": 1, "username": "RhythmRebel22", "email": "rhythmrebel22@musicmail.com"},
+    {"id": 2, "username": "MelodyMaker88", "email": "melodymaker88@musicmail.com"},
+    {"id": 3, "username": "SoundSeeker99", "email": "soundseeker99@musicmail.com"},
+    {"id": 4, "username": "BeatBoxer77", "email": "beatboxer77@musicmail.com"},
+    {"id": 5, "username": "HarmonyHunter55", "email": "harmonyhunter55@musicmail.com"},
+    {"id": 6, "username": "ChordCrafter11", "email": "chordcrafter11@musicmail.com"},
+    {"id": 7, "username": "TuneTraveler33", "email": "tunetraveler33@musicmail.com"},
+    {"id": 8, "username": "BasslineBoss44", "email": "basslineboss44@musicmail.com"},
+    {"id": 9, "username": "VibeCurator12", "email": "vibecurator12@musicmail.com"},
+    {"id": 10, "username": "LyricLover21", "email": "lyriclover21@musicmail.com"}
 ]

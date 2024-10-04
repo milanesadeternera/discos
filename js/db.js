@@ -62,6 +62,8 @@ async function getAlbumsId(){
     });
 }
 
+
+//fetch
 async function readJSON(url) {
     try {
         const response = await fetch(url);

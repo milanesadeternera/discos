@@ -1,5 +1,12 @@
 [
-    {"userId": 1 , "albumId":"", "score": -1 , "date": "", "review": ""},
-    {"userId": 1 , "albumId":"", "score": -1 , "date": "", "review": ""}
-
+    {"userId": 5, "albumId": "5QuLV3XtfsdR4ujUcg9xd5", "score": "5", "date": "15/09/23", "review": "Increíble álbum, cada canción cuenta una historia."},
+    {"userId": 3, "albumId": "5LigBf2htSs8LEH14NyNlc", "score": "3", "date": "10/08/23", "review": "Algunas canciones son buenas, pero otras son bastante mediocres."},
+    {"userId": 7, "albumId": "0OehuG8E9aCUx9lJWfMiqI", "score": "4", "date": "22/07/23", "review": "Gran producción y letras profundas."},
+    {"userId": 2, "albumId": "57DyIWEyjXm0hqeVX0dk36", "score": "2", "date": "05/06/23", "review": "No me gustó mucho, esperaba más."},
+    {"userId": 9, "albumId": "5QuLV3XtfsdR4ujUcg9xd5", "score": "5", "date": "18/05/23", "review": "Un clásico atemporal, definitivamente lo recomiendo."},
+    {"userId": 4, "albumId": "1ZRH0AAHXlUFCw2e0Ch5b9", "score": "1", "date": "30/04/23", "review": "Definitivamente no es mi estilo."},
+    {"userId": 8, "albumId": "6zMQ2vluMVTM250k3ztUT5", "score": "4", "date": "12/03/23", "review": "Un álbum muy sólido con varias joyas escondidas."},
+    {"userId": 1, "albumId": "34ywELgakejCKU2p37wJJ8", "score": "3", "date": "25/02/23", "review": "No está mal, pero no es algo que volvería a escuchar."},
+    {"userId": 6, "albumId": "1B9nXYbMosOfWLlSrE8Q3r", "score": "5", "date": "10/01/23", "review": "Una obra maestra, realmente vale la pena."},
+    {"userId": 10, "albumId": "2eLIA8Rhn0XTpfJxnFzaa5", "score": "4", "date": "20/12/22", "review": "Buen ritmo y buenas colaboraciones."}
 ]

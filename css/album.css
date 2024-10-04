@@ -9,13 +9,13 @@ body{
 .container{
     border-radius: 20px;
 }
-
+/*
 .cover{
     height: 600px;
     width: 600px;
     border-radius: 2%;
 }
-
+*/
 h1, h3, .tracks , p, hr {
     color: white;
 }
@@ -56,4 +56,53 @@ input[type="radio"] {
 /*Color de los posteriores*/
 .rate > input:checked + label ~ label {   
 color:#544500;
+}
+
+/*
+Bootstrap windows size:
+Small	            sm	≥576px
+Medium	            md	≥768px
+Large	            lg	≥992px
+Extra large	        xl	≥1200px
+Extra extra large	xxl	≥1400px
+*/
+@media (max-width: 767px) {
+    #albumRow{
+        display: block;
+    }
+    #tapa{
+        display: flex;
+        justify-content: center;
+        margin-bottom: 5%;
+    }
+    #title, #artist{
+        text-align: center;
+    }
+    .cover{
+        height: 300px;
+        width: 300px;
+        border-radius: 2%;
+    }
+    .row{
+        justify-content: center;
+    }
+}
+
+@media (max-width: 991px) {
+    #albumRow{
+        display: block;
+    }
+    #tapa{
+        display: flex;
+        justify-content: center;
+        margin-bottom: 5%;
+    }
+    #title, #artist{
+        text-align: center;
+    }
+    .cover{
+        height: 600px;
+        width: 600px;
+        border-radius: 2%;
+    }
 }

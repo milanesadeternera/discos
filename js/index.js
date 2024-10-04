@@ -1,6 +1,11 @@
 
 document.addEventListener("DOMContentLoaded", () =>{
-    console.log("falopa");
+    console.log("index");
+    //usuario creado?
+    let userData = getUserData();
+    if(userData.username != '' ){
+        window.location.href = "album.html";
+    }
     //login
     document.getElementById("loginButton").addEventListener("click", login);
     //registro

@@ -1,9 +1,14 @@
 let albumJson ="";
+let album
 
 document.addEventListener("DOMContentLoaded", async ()=>{
-    let album = await todayAlbum();
+    album = await todayAlbum();
     displayAlbum(album);
-    let comments = albumComments();
+
+    //guardar review del usuario.
+    document.getElementById('saveReview').addEventListener('click', saveReview);
+    albumComments();
+    displayUserReview();
 });
 
 /*
@@ -45,11 +50,39 @@ document.addEventListener("DOMContentLoaded", async ()=>{
 
 });
 */
+async function albumComments(){
+    console.log("albumComments")
+    let data = await getComments(album.id);
+    let content ="";
+    data.forEach( review => {
+        content +=`
+        <div>
+            <div>
+            <p class="fs-5 mb-0">${review.username}</p>`
 
+        for(let i=1; i<=5 ; i++){
+            if(i<=review.score){
+                content+=`<label class="star star-on">★</label>`
+            }else{
+                content+=`<label class="star star-off">★</label>`
+            }
+
+        }
+        content+=
+            `</div>
+                <div class="col fs-5 text-center fst-italic">
+                <p>“${review.review}"</p>
+            </div>
+        <hr>
+        </div>`
+        });
+    document.getElementById("reviews").innerHTML=content;
+
+}
 
 function displayAlbum(album){
-    console.log("Album");
-    console.log(album);
+    console.log("displayAlbum");
+    //console.log(album);
     //recupero artistas
     let artists="";
     album.artists.forEach(artist => {
@@ -58,7 +91,7 @@ function displayAlbum(album){
 
     //tracklist table
     let tracklistTable=`
-            <table class="table table-dark ">
+            <table class="table table-dark">
                 <thead>
                         <tr>
                           <th scope="col">#</th>
@@ -80,7 +113,7 @@ function displayAlbum(album){
                     </tbody>
                   </table>`;
     let response = `
-            <div class="col-md-6  d-flex justify-content-center align-items-center">
+            <div id="tapa" class="col-md-10 justify-content-center align-items-center">
                 <img src="${album.images[0].url}" class="cover" alt="...">
             </div>
             <div class="col-md-6">
@@ -124,21 +157,46 @@ function displayUserReview(albumId){
     console.log("User review");
     console.log(albumReview);
 }
+*/
 
 //Guarda la calificación del usuario
-document.getElementById('saveReview').addEventListener('click', function(){
+function saveReview(){
+    console.log("saveReview: Guardo calificacion.")
     //recupero calificacion
     let calificacion = document.querySelector('input[name="reviewRadioOptions"]:checked').value
     //recupero comentarios
     let comentarios = document.getElementById("reviewTextarea").value;
-    //albumId - albumJson.id
-    let review = {"albumId": albumJson.id, "date": obtenerFechaFormateada(), "score":calificacion, "review":comentarios};
-    //guardo en localstorage
-    let userData = getUserData();
-    userData.history.push(review);
-    setUserData(userData);
+    if(setUserReview(album.id, calificacion, comentarios)){
+        //ok
+        displayUserReview();
+    }
 
-    //Actualizo y muestro la informacion.
-    displayUserReview(albumJson.id);
-});
-*/
+}
+
+//Muestra review del usuario
+function displayUserReview(){
+    console.log("displayUserReview: "+album.id);
+    let content ='';
+    let userReview = getUserReview(album.id);
+    if(userReview != undefined ){
+        //existe review.
+        content =`
+            <div>
+                <p class="fs-5 mb-0">Tu calificacion:</p>`
+
+        for(let i=1; i<=5 ; i++){
+            if(i<=userReview.score){
+                content+=`<label class="star star-on">★</label>`
+            }else{
+                content+=`<label class="star star-off">★</label>`
+            }
+
+        }
+        content+=
+            `</div>
+                <div class="col fs-5 text-center fst-italic">
+                <p>“${userReview.review}"</p>
+            </div>`
+    }
+    document.getElementById("userReview").innerHTML=content;
+}
