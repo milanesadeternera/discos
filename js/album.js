@@ -178,7 +178,7 @@ function displayUserReview(){
     console.log("displayUserReview: "+album.id);
     let content ='';
     let userReview = getUserReview(album.id);
-    if(userReview != undefined ){
+    if(userReview != undefined && userReview.score > 0){
         //existe review.
         content =`
             <div>
@@ -197,6 +197,7 @@ function displayUserReview(){
                 <div class="col fs-5 text-center fst-italic">
                 <p>“${userReview.review}"</p>
             </div>`
-    }
     document.getElementById("userReview").innerHTML=content;
+    }
+    
 }
